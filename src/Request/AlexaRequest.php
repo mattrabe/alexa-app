@@ -10,7 +10,7 @@ class AlexaRequest extends Request implements \Develpr\AlexaApp\Contracts\AlexaR
 	private $slots = null;
 	private $promptResponse = null;
 
-	protected function getData()
+	public function getData()
 	{
 		if( ! $this->processed )
 			$this->process();
@@ -112,7 +112,8 @@ class AlexaRequest extends Request implements \Develpr\AlexaApp\Contracts\AlexaR
 	 */
 	public function slot($slotKey)
 	{
-		return (array_key_exists($slotKey, $this->slots)) ? $this->slots[$slotKey]['value'] : null;
+        $this->getData();
+        return (array_key_exists($slotKey, $this->slots) && isset($this->slots[$slotKey]['value'])) ? $this->slots[$slotKey]['value'] : null;
 	}
 
 	/**

@@ -71,14 +71,14 @@ class Alexa {
 		return new AlexaResponse;
 	}
 
-	public function say($statementWords)
+	public static function say($statementWords)
 	{
 		$response = new AlexaResponse(new Speech($statementWords));
 
 		return $response;
 	}
 
-	public function ask($question)
+	public static function ask($question)
 	{
 		$response = new AlexaResponse(new Speech($question));
 
@@ -87,7 +87,7 @@ class Alexa {
 		return $response;
 	}
 
-	public function card($title = "", $subtitle = "", $content = "")
+	public static function card($title = "", $subtitle = "", $content = "")
 	{
 		$response = new AlexaResponse();
 

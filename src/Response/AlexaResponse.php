@@ -123,7 +123,7 @@ class AlexaResponse implements Jsonable
         if( ! is_null($this->card) && $this->card instanceof Card )
             $response['card'] = $this->card->toArray();
 		if( ! is_null($this->reprompt) && $this->reprompt instanceof Reprompt )
-			$response['reprompt'] = $this->reprompt->toArray();
+			$response['reprompt'] = (object)array('outputSpeech' => $this->reprompt->toArray());
 
 		$sessionAttributes = $this->getSessionData();
 
