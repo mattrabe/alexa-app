@@ -216,7 +216,7 @@ class AlexaResponse implements Jsonable
 
     private function getSessionData()
     {
-        $data = $this->alexa->session();
+        $data = $this->sessionAttributes;
 
 		if($this->isPrompt()){
 			$data['possible_prompt_response'] = true;
